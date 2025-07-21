@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import "tailwindcss";
+
+@layer tailwind-base, primevue, tailwind-utilities;
+
+body {
+    @apply text-sm font-poppins;
+}
+
+@theme {
+    --font-poppins: 'Poppins';
+
+    --color-primary: oklch(0.6995 0.0524 53.79);
+    --color-secondary: oklch(0.4865 0.0577 239.82);
+    --color-tertiary: oklch(0.9677 0.0084 56.31);
+}
