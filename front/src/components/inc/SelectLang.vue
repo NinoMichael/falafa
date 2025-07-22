@@ -8,12 +8,11 @@
             optionLabel = "label"
             optionValue = "value"
             @change = "changeLanguage"
-            class="!border-none !shadow !font-poppins !text-sm !text-black/70"
-            overlayClass="!text-sm !font-poppins"
+            class="p-dropdown-custom"
+            overlayClass="p-dropdown-custom-overlay"
             :pt="{
-                label: '!text-black/60 !font-medium !text-sm',
-                overlay: '!bg-transparent !text-black/70',
-                option: '!bg-transparent hover:!bg-primary/10 !text-black/70 !w-full',
+                label: 'p-dropdown-custom-label font-medium',
+                option: 'p-dropdown-custom-option'
             }"
         />
     </div>
