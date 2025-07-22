@@ -1,9 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import Default from '../layouts/Default.vue'
 import Home from '../pages/Home.vue'
 
 const routes = [
-    { path: '/', name: 'Home', component: Home },
+    {
+        path: '/',
+        component: Default,
+        children: [
+            { path: '', name: 'Home', component: Home },
+        ]
+    },
     // { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
