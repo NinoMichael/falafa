@@ -5,7 +5,7 @@
 @layer tailwind-base, primevue, tailwind-utilities;
 
 body {
-    @apply text-sm font-poppins text-black/70;
+    @apply text-sm font-poppins text-black/70 !overflow-x-hidden;
 }
 
 @theme {

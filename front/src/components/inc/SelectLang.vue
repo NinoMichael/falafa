@@ -9,7 +9,7 @@
             optionValue = "value"
             @change = "changeLanguage"
             class="p-dropdown-custom"
-            overlayClass="p-dropdown-custom-overlay"
+            overlayClass="p-dropdown-custom-overlay !bg-white"
             :pt="{
                 label: 'p-dropdown-custom-label font-medium',
                 option: 'p-dropdown-custom-option'

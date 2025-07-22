@@ -4,17 +4,17 @@
 
         <Menubar 
             :model="items"
-            class="!bg-transparent !hidden lg:!block !border-none !font-varela" 
+            class="!bg-transparent !hidden lg:!block !border-none !font-varela !text-sm"
         />
         
         <div class="flex gap-6 items-center">
             <Button 
                 :label="t('login')"
-                class="!bg-primary !hidden sm:!block"
+                class="!bg-primary hover:!bg-primary/90 !hidden sm:!block"
             />
             <Button 
                 :label="t('register')"
-                class="!bg-secondary !hidden sm:!block"
+                class="!bg-secondary hover:!bg-secondary/90 !hidden sm:!block"
             />
 
             <SelectLang />
@@ -37,9 +37,9 @@
             >
                 <Menu 
                     :model="items" 
-                    class="!bg-transparent !text-sm !border-none !font-varela !px-0"
+                    class="!bg-transparent !border-none !font-varela !px-0 !text-sm"
                     :pt="{
-                        list: '!mt-4 !space-y-4'
+                        list: '!mt-4 !space-y-4',
                     }"
                 />
 
