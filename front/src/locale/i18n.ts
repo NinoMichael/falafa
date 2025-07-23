@@ -17,6 +17,8 @@ const messages = {
         price: 'Prix',
         select: 'Sélectionner',
         entry: 'Entrer',
+        ourPartners: 'Nos partenaires',
+        whyChoose: 'Pourquoi choisir Falafa ?'
     },
 
     mg: {
@@ -35,6 +37,8 @@ const messages = {
         price: 'Vidy',
         select: 'Safidio',
         entry: 'Ampidiro',
+        ourPartners: 'Ireo mpiara-miasa',
+        whyChoose: 'Nahoana no mifidy Falafa ?'
     },
 };
 
