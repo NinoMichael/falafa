@@ -1,5 +1,5 @@
 <template>
-    <header class="flex justify-between items-center bg-white">
+    <header class="flex justify-between items-center bg-white px-8">
         <Logo class="w-28" />
 
         <Menubar 

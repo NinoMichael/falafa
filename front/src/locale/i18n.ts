@@ -3,9 +3,13 @@ import { createI18n } from 'vue-i18n';
 const messages = {
     fr: {
         home: "ACCUEIL",
+        homeMin: "Accueil",
         discover: "EXPLORER",
+        discoverMin: "Explorer",
         services: "SERVICES",
+        servicesMin: "Services",
         contact: 'CONTACT',
+        contactMin: 'Contact',
         login: 'Se connecter',
         register: 'S\'inscrire',
         menu: 'MENU',
@@ -18,14 +22,23 @@ const messages = {
         select: 'Sélectionner',
         entry: 'Entrer',
         ourPartners: 'Nos partenaires',
-        whyChoose: 'Pourquoi choisir Falafa ?'
+        whyChoose: 'Pourquoi choisir Falafa ?',
+        quickLinks: 'Liens rapides',
+        legals: 'Légales',
+        termsOfUse: 'Conditions d\'utilisation',
+        privacyPolicy: 'Politiques de confidentialité',
+        support: 'Support',
     },
 
     mg: {
         home: "TONGASOA",
+        homeMin: "Tongasoa",
         discover: "HIKAROKA",
+        discoverMin: "Hikaroka",
         services: "TOLOTRA",
+        servicesMin: "Tolotra",
         contact: 'FIFANDRAISANA',
+        contactMin: 'Fifandraisana',
         login: 'Hiditra',
         register: 'Hisoratra',
         menu: 'TAKELAKA',
@@ -38,7 +51,12 @@ const messages = {
         select: 'Safidio',
         entry: 'Ampidiro',
         ourPartners: 'Ireo mpiara-miasa',
-        whyChoose: 'Nahoana no mifidy Falafa ?'
+        whyChoose: 'Nahoana no mifidy Falafa ?',
+        quickLinks: 'Rohy haingana',
+        legals: 'Lalàna',
+        termsOfUse: 'Fepetra fampiasana',
+        privacyPolicy: 'Politikan\'ny tsiambaratelo',
+        support: 'Fanampiana',
     },
 };
 
