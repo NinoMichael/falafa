@@ -1,10 +1,10 @@
 <template>
     <div>
         <h2 class="text-2xl text-center font-bold text-secondary">
-            Pourquoi choisir Falafa ?
+            {{ t('whyChoose') }}
         </h2>
         <p class="mt-2 text-center">
-            Un guichet unique pour tous vos besoins immobiliers
+            {{ t('uniqueWay') }}
         </p>    
 
         <section class="mt-12 grid lg:grid-cols-2 gap-16">
@@ -14,7 +14,7 @@
                 class="order-2 lg:order-1"
             >
 
-            <div class="order-1 lg:order-2 grid md:grid-cols-2 lg:grid-cols-1 space-y-8">
+            <div class="order-1 lg:order-2 grid md:grid-cols-2 lg:grid-cols-1 gap-8">
                 <div
                     v-for="reason in reasons"
                     :key="reason.id"
@@ -39,32 +39,37 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
 import imgChoose from '../../assets/images/img-choose.png';
 
-const reasons = [
+const { t } = useI18n();
+
+const reasons = computed(() => [
     {
         id: 1,
         icon: 'pi pi-search',
-        title: 'Recherche simplifiée',
-        text: 'Trouvez rapidement la propriété qui vous correspond grâce à nos filtres avancés (type, région, prix, superficie…)',
+        title: t('simplifiedSearch'),
+        text: t('searchRapidly'),
     },
     {
         id: 2,
         icon: 'pi pi-megaphone',
-        title: 'Annonces vérifiées',
-        text: 'Toutes les annonces sont validées pour garantir leur authenticité',
+        title: t('verifiedAnnonce'),
+        text: t('verifiedAnnonce'),
     },
     {
         id: 3,
         icon: 'pi pi-phone',
-        title: 'Contact direct',
-        text: 'Échangez directement avec les propriétaires ou agences',
+        title: t('directContact'),
+        text: t('exchangeDirectly'),
     },
     {
         id: 4,
         icon: 'pi pi-barcode',
-        title: 'Référencement national',
-        text: 'Des annonces couvrant toutes les régions de Madagascar',
+        title: t('seoNational'),
+        text: t('coverAnnonce'),
     }
-];
+]);
 </script>
