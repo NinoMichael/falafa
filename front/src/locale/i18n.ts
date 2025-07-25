@@ -42,6 +42,15 @@ const messages = {
         emailAddress: 'Adresse e-mail',
         save: 'Enregistrer',
         allRightsReserved: 'Tous droits réservés',
+        loginTitle: 'Connexion',
+        enterInfoLogin: 'Veuillez entrer les identifiants de votre compte',
+        password: 'Mot de passe',
+        rememberMe: 'Se souvenir de moi',
+        forgottenPassword: 'Mot de passe oublié ?',
+        or: 'OU',
+        googleLogin: 'Se connecter avec Google',
+        dontHave: 'Vous n\'avez pas encore de compte ?',
+        registerLogin: 'Inscrivez-vous',
     },
 
     mg: {
@@ -85,6 +94,15 @@ const messages = {
         emailAddress: 'Adiresy mailaka',
         save: 'Alefa',
         allRightsReserved: 'Zo rehetra voatokana',
+        loginTitle: 'Hiditra amin\'ny kaonty',
+        enterInfoLogin: 'Ampidiro ny mombamomba ny kaontinao azafady',
+        password: 'Teny miafina',
+        rememberMe: 'Tadidio aho',
+        forgottenPassword: 'Teny miafina adino ?',
+        or: 'NA',
+        googleLogin: 'Hiditra amin\'ny alalan\'ny Google',
+        dontHave: 'Mbola tsy manana kaonty ?',
+        registerLogin: 'Hisoratra',
     },
 };
 

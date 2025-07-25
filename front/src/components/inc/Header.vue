@@ -8,9 +8,11 @@
         />
         
         <div class="flex gap-6 items-center">
-            <Button 
+            <Button
+                as="a" 
                 :label="t('login')"
                 class="!bg-primary hover:!bg-primary/90 !hidden sm:!block"
+                href='/auth/login'
             />
             <Button 
                 :label="t('register')"
@@ -60,6 +62,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
 import Menubar from 'primevue/menubar';
@@ -70,6 +73,7 @@ import Logo from './Logo.vue';
 import SelectLang from "./SelectLang.vue";
 
 const { t } = useI18n();
+const router = useRouter();
 
 const visible = ref(false);
 const items = computed(() => [
