@@ -55,6 +55,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Relation user with admin
+     * 
+     * @return [type]
+     */
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
+
+    /**
      * Check if user is agency
      * 
      * @return bool
@@ -62,6 +72,16 @@ class User extends Authenticatable
     public function isAgency(): bool
     {
         return $this->role === 'agency';
+    }
+
+    /**
+     * Relation user with agency
+     * 
+     * @return [type]
+     */
+    public function agency()
+    {
+        return $this->hasOne(Agency::class);
     }
 
     /**
@@ -75,6 +95,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Relation user with promoter
+     * 
+     * @return [type]
+     */
+    public function promoter()
+    {
+        return $this->hasOne(Promoter::class);
+    }
+
+    /**
      * Check if user is visitor
      * 
      * @return bool
@@ -82,5 +112,15 @@ class User extends Authenticatable
     public function isVisitor(): bool
     {
         return $this->role === 'visitor';
+    }
+
+    /**
+     * Relation user with visitor
+     * 
+     * @return [type]
+     */
+    public function visitor()
+    {
+        return $this->hasOne(Visitor::class);
     }
 }

@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         if (!$result) {
             return response()->json([
-                'message' => 'Identifiants corrects',
+                'message' => __('auth.login_failed'),
             ], 401);
         }
 

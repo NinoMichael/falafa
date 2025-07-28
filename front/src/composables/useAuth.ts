@@ -1,12 +1,9 @@
 import { ref } from 'vue';
 import axios from 'axios';
 import { useI18n } from 'vue-i18n';
-import type { User } from '../lib/types';
 
 import { loginService } from '../services/user/AuthService';
 
-const user = ref<User>(null);
-const token = ref<string>(null);
 const loading = ref<boolean>(false);
 const error = ref(null);
 
@@ -18,12 +15,14 @@ export const useAuth = () => {
         error.value = null;
     
         try {
-            await loginService(credentials);
+            const response = await loginService(credentials);
+
+            localStorage.setItem('user', JSON.stringify(response.data?.user));
         
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token.value}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.stringify(response.data?.token)}`;
         } 
         catch (err) {
-            error.value = err?.response?.data?.message || t('errConnection');
+            error.value = err?.response?.data?.message;
             throw err;
         } 
         finally {
