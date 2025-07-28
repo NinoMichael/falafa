@@ -1,4 +1,9 @@
 {
   "include": ["src", "env.d.ts"],
   "files": [],
+  "compilerOptions": {
+    "module": "es2020",
+    "target": "esnext",
+    "moduleResolution": "node",
+  }
 }

@@ -1,5 +1,8 @@
 <template>
-    <form class="px-32">
+    <form
+        class="px-8 lg:px-24"
+        @submit.prevent="submit"
+    >
         <h1 class="text-2xl font-semibold text-center text-primary">
             {{ t('loginTitle') }}
         </h1>
@@ -46,7 +49,7 @@
             </FloatLabel>
         </section>
 
-        <div class="mt-4 text-xs flex justify-between items-center">
+        <div class="mt-4 text-[0.7em] sm:text-xs flex justify-between items-center">
             <div class="flex gap-2 items-center">
                 <Checkbox id="remember"/>
                 <label>
@@ -64,6 +67,7 @@
 
         <Button 
             :label="t('login')"
+            type="submit"
             class="!mt-10 !bg-secondary !w-full"
         />
 
@@ -102,10 +106,19 @@ import Password from 'primevue/password';
 import Checkbox from 'primevue/checkbox';
 import Button from 'primevue/button';
 
+import { useAuth } from '../../composables/useAuth';
+
 const { t } = useI18n();
+const { login } = useAuth();
 
 const formData = reactive({
     email: '',
     password: '',
 });
-</script>
+
+const submit = async () => {
+    login(formData).then((result) => {
+        console.log(result);
+    })
+}
+</script> 

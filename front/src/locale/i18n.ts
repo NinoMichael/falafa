@@ -51,6 +51,7 @@ const messages = {
         googleLogin: 'Se connecter avec Google',
         dontHave: 'Vous n\'avez pas encore de compte ?',
         registerLogin: 'Inscrivez-vous',
+        errConnection: 'Erreur de connexion',
     },
 
     mg: {
@@ -103,6 +104,7 @@ const messages = {
         googleLogin: 'Hiditra amin\'ny alalan\'ny Google',
         dontHave: 'Mbola tsy manana kaonty ?',
         registerLogin: 'Hisoratra',
+        errConnection: 'Misy olana ara-teknika',
     },
 };
 
