@@ -105,20 +105,33 @@ import FloatLabel from 'primevue/floatlabel';
 import Password from 'primevue/password';
 import Checkbox from 'primevue/checkbox';
 import Button from 'primevue/button';
+import { useToast } from "primevue/usetoast";
 
 import { useAuth } from '../../composables/useAuth';
 
-const { t } = useI18n();
-const { login } = useAuth();
+const toast = useToast();
+const { t, locale } = useI18n();
+const { login, error } = useAuth();
 
 const formData = reactive({
     email: '',
     password: '',
+    lang: locale.value,
 });
 
 const submit = async () => {
-    login(formData).then((result) => {
-        console.log(result);
-    })
+    formData.lang = locale.value;
+
+    try {
+        await login(formData);
+    } 
+    catch (err) {
+        toast.add({ 
+            severity: 'error',
+            summary: t('error'),
+            detail: error.value,
+            life: 3000,  
+        });
+    }
 }
 </script> 

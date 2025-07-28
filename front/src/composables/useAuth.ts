@@ -18,16 +18,13 @@ export const useAuth = () => {
         error.value = null;
     
         try {
-            const response = await loginService(credentials);
-            console.log(response);
+            await loginService(credentials);
         
             axios.defaults.headers.common['Authorization'] = `Bearer ${token.value}`;
-        
-            return true;
         } 
         catch (err) {
-            error.value = err.response?.data?.message || t('errConnection');
-            return false;
+            error.value = err?.response?.data?.message || t('errConnection');
+            throw err;
         } 
         finally {
             loading.value = false;
@@ -36,5 +33,6 @@ export const useAuth = () => {
 
     return {
         login,
+        error,
     }
 }

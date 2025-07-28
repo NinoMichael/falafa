@@ -52,6 +52,7 @@ const messages = {
         dontHave: 'Vous n\'avez pas encore de compte ?',
         registerLogin: 'Inscrivez-vous',
         errConnection: 'Erreur de connexion',
+        error: 'Erreur',
     },
 
     mg: {
@@ -105,6 +106,7 @@ const messages = {
         dontHave: 'Mbola tsy manana kaonty ?',
         registerLogin: 'Hisoratra',
         errConnection: 'Misy olana ara-teknika',
+        error: 'Hatsoka',
     },
 };
 
