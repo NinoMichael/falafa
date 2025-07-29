@@ -23,6 +23,9 @@ class AuthController extends Controller
 
     /**
      * Store a newly created user & role table in storage.
+     * @param RegisterRequest $request
+     * 
+     * @return [type]
      */
     public function register(RegisterRequest $request)
     {

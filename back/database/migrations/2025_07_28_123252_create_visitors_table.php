@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->datetime('verified_at')->nullable();
             $table->enum('status', ['active', 'inactive', 'suspended']);
             $table->timestamps();
         });

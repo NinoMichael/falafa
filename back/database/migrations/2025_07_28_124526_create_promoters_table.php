@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('facebook_link')->nullable();
-            $table->datetime('verified_at')->nullable();
             $table->enum('status', ['active', 'inactive', 'suspended']);
             $table->timestamps();
         });
