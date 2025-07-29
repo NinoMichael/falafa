@@ -1,15 +1,12 @@
 import { ref } from 'vue';
 import axios from 'axios';
-import { useI18n } from 'vue-i18n';
 
-import { loginService } from '../services/user/AuthService';
+import { loginService, registerService } from '../services/user/AuthService';
 
 const loading = ref<boolean>(false);
 const error = ref(null);
 
 export const useAuth = () => {
-    const { t } = useI18n();
-
     const login = async (credentials) => {
         loading.value = true;
         error.value = null;
@@ -30,8 +27,26 @@ export const useAuth = () => {
         }
     }
 
+    const register = async (formData) => {
+        loading.value = true;
+        error.value = null;
+
+        try {
+            return await registerService(formData);
+        } 
+        catch (err) {
+            error.value = err?.response?.data?.message;
+            throw err;
+        } 
+        finally {
+            loading.value = false;
+        }
+    }
+
     return {
         login,
+        register,
         error,
+        loading,
     }
 }

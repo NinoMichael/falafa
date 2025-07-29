@@ -14,9 +14,11 @@
                 class="!bg-primary hover:!bg-primary/90 !hidden sm:!block"
                 href='/auth/login'
             />
-            <Button 
+            <Button
+                as="a"  
                 :label="t('register')"
                 class="!bg-secondary hover:!bg-secondary/90 !hidden sm:!block"
+                href='/auth/register-email'
             />
 
             <SelectLang />

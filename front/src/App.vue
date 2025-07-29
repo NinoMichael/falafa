@@ -1,5 +1,6 @@
 <template>
-    <Toast 
+    <Toast
+        position="bottom-right" 
         :pt="{
             message: '!bg-white !border-gray-100 !shadow',
             summary: '!-mt-0.5',

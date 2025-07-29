@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use App\Services\User\AuthService;
 use App\Http\Requests\User\LoginRequest;
+use App\Http\Requests\User\RegisterRequest;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 
@@ -21,11 +22,17 @@ class AuthController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created user & role table in storage.
      */
-    public function store(Request $request)
+    public function register(RegisterRequest $request)
     {
-        //
+        $data = $request->validated();
+        $user = AuthService::register($data);
+
+        return response()->json([
+            'message' => __('auth.registered_success'), 
+            'user' => $user],
+        201);
     }
 
     /**
@@ -55,14 +62,6 @@ class AuthController extends Controller
      * Display the specified resource.
      */
     public function show(User $user)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
     {
         //
     }

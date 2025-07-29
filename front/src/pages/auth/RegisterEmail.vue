@@ -1,17 +1,17 @@
 <template>
-    <form
+    <form 
         class="px-8 lg:px-24"
         @submit.prevent="submit"
     >
         <h1 class="text-2xl font-semibold text-center text-primary">
-            {{ t('loginTitle') }}
+            {{ t('registerTitle') }}
         </h1>
         <p class="mt-3 text-center">
-            {{ t('enterInfoLogin') }}
+            {{ t('enterRegisterEmail') }}
         </p>
 
         <section class="mt-10 space-y-8">
-            <FloatLabel 
+            <FloatLabel
                 variant="on"
             >
                 <InputText
@@ -47,28 +47,32 @@
                     {{ t('password') }}
                 </label>
             </FloatLabel>
+
+            <FloatLabel 
+                variant="on"
+            >
+                <Password
+                    id="passwordConfirm" 
+                    v-model="formData.passwordConfirm"
+                    class="focus-within:!border-secondary !w-full"
+                    :feedback="false"
+                    toggleMask
+                    :pt="{
+                        pcInputText: 'in-focus-within:!border-secondary'
+                    }"
+                />
+                <label 
+                    for="passwordConfirm"
+                    class="in-focus-within:!text-secondary"
+                >
+                    {{ t('passwordConfirm') }}
+                </label>
+            </FloatLabel>
         </section>
 
-        <div class="mt-4 text-[0.7em] sm:text-xs flex justify-between items-center">
-            <div class="flex gap-2 items-center">
-                <Checkbox id="remember"/>
-                <label>
-                    {{ t('rememberMe') }}
-                </label>
-            </div>
-            
-            <router-link
-                to="/"
-                class="underline underline-offset-2 text-primary"
-            >
-                {{ t('forgottenPassword') }}
-            </router-link>
-        </div>
-
         <Button 
-            :label="t('login')"
+            :label="t('next')"
             type="submit"
-            :loading="loading"
             class="!mt-10 !bg-secondary !w-full"
         />
 
@@ -86,12 +90,12 @@
         />
 
         <p class="mt-8 text-center text-xs">
-            {{ t('dontHave') }}
+            {{ t('alreadyHave') }}
             <router-link 
                 to="/auth/register-email"
                 class="font-semibold text-primary"
             >
-                {{ t('registerLogin') }}
+                {{ t('login') }}
             </router-link>
         </p>
     </form>
@@ -99,40 +103,33 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
 import Password from 'primevue/password';
-import Checkbox from 'primevue/checkbox';
 import Button from 'primevue/button';
-import { useToast } from "primevue/usetoast";
 
-import { useAuth } from '../../composables/useAuth';
+import { useRegistrationEmailStore } from '../../stores/user/useRegistrationStore';
 
-const toast = useToast();
-const { t, locale } = useI18n();
-const { login, error, loading } = useAuth();
+const { t } = useI18n();
+const router = useRouter();
 
 const formData = reactive({
     email: '',
     password: '',
-    lang: locale.value,
+    passwordConfirm: '',
 });
 
-const submit = async () => {
-    formData.lang = locale.value;
-
-    try {
-        await login(formData);
-    } 
-    catch (err) {
-        toast.add({ 
-            severity: 'error',
-            summary: t('error'),
-            detail: error.value,
-            life: 3000,  
-        });
+const submit = () => {
+    const store = useRegistrationEmailStore();
+    
+    store.email = formData.email;
+    if ( formData.password == formData.passwordConfirm ) {
+        store.password = formData.password;
     }
+
+    router.push('/auth/register-info');
 }
-</script> 
+</script>

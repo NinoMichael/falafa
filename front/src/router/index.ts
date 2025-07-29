@@ -5,6 +5,8 @@ import Auth from '../layouts/Auth.vue'
 
 import Home from '../pages/Home.vue'
 import Login from '../pages/auth/Login.vue'
+import RegisterEmail from '../pages/auth/RegisterEmail.vue'
+import RegisterInfo from '../pages/auth/RegisterInfo.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -19,6 +21,8 @@ const routes: RouteRecordRaw[] = [
         component: Auth,
         children: [
             { path: 'login', name: 'Login', component: Login },
+            { path: 'register-email', name: 'RegisterEmail', component: RegisterEmail },
+            { path: 'register-info', name: 'RegisterInfo', component: RegisterInfo },
         ]
     },
     // { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },

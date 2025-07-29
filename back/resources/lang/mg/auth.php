@@ -5,4 +5,5 @@ return [
     'valid_email' => 'Tsy maintsy manankery ny adiresy mailaka',
     'required_password' => 'Tsy maintsy ilaina ny teny miafina',
     'login_failed' => 'Adiresy mailaka na teny miafina diso',
+    'registered_success' => 'Fisoratana anarana nahomby',
 ];
