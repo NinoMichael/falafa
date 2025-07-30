@@ -1,7 +1,9 @@
 import { createI18n } from 'vue-i18n';
+import { primevueLocales } from './primevue';
 
 const messages = {
     fr: {
+        primevue: primevueLocales.fr,
         home: "ACCUEIL",
         homeMin: "Accueil",
         discover: "EXPLORER",
@@ -69,9 +71,18 @@ const messages = {
         titleVerifyEmail: 'Vérifiez votre adresse e-mail',
         pVerifyEmail: 'Veuillez consulter votre boite e-mail et cliquer sur le lien fourni pour vérifier votre adresse e-mail et activer votre compte',
         resendEmail: 'Renvoyer l\'email',
+        enterProfileInfo: 'Veuillez compléter votre profil',
+        lastname: 'Nom',
+        firstname: 'Prénoms',
+        birthDate: 'Date de naissance',
+        gender: 'Sexe',
+        male: 'Masculin',
+        female: 'Féminin',
+        finish: 'Terminer',
     },
 
     mg: {
+        primevue: primevueLocales.mg,
         home: "TONGASOA",
         homeMin: "Tongasoa",
         discover: "HIKAROKA",
@@ -139,6 +150,14 @@ const messages = {
         titleVerifyEmail: 'Hamarino ny adiresy mailaka',
         pVerifyEmail: 'Jereo ny boaty mailakao azafady ary tsindrio ny rohy nomena mba hanamarinana ny adiresy mailakao sy hampamokatra ny kaontinao',
         resendEmail: 'Averina alefa',
+        enterProfileInfo: 'Fenoy ny mombamomba ny kaontinao azafady',
+        lastname: 'Anarana',
+        firstname: 'Fanampiny',
+        birthDate: 'Daty nahaterahana',
+        gender: 'Sokajin\'olona',
+        male: 'Lehilahy',
+        female: 'Vehivavy',
+        finish: 'Hamarana',
     },
 };
 

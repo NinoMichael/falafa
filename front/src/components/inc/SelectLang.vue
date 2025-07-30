@@ -21,10 +21,12 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { usePrimeVue } from 'primevue/config';
 
 import Select from 'primevue/select';
 
-const { locale } = useI18n();
+const primevue = usePrimeVue();
+const { locale, t } = useI18n();
 const selectedLanguage = ref(locale.value);
 
 const languages = ref([

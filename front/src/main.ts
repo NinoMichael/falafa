@@ -19,7 +19,7 @@ app.use(PrimeVue, {
             darkModeSelector: 'system',
             cssLayer: false
         }
-    }
+    },
 });
 
 const pinia = createPinia();
