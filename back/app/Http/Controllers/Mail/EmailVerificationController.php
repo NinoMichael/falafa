@@ -8,15 +8,31 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class EmailVerificationController extends Controller
 {
+    /**
+     * Verify email user
+     * 
+     * @param EmailVerificationRequest $request
+     * 
+     * @return [type]
+     */
     public function verifyUser(EmailVerificationRequest $request)
     {
         $request->fulfill();
 
-        return response()->json([
-            'message' => 'Email verified successfully.'
-        ]);
+        $redirectUrl = $request->query('redirect');
+
+        if ($redirectUrl && str_starts_with($redirectUrl, config('app.frontend_url'))) {
+            return redirect($redirectUrl);
+        }
     }
 
+    /**
+     * Resend notification for email verification
+     * 
+     * @param Request $request
+     * 
+     * @return [type]
+     */
     public function resend(Request $request)
     {
         if ($request->user()->hasVerifiedEmail()) {

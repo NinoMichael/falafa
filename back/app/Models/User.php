@@ -133,4 +133,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new CustomVerifyEmail);
     }
+
+    /**
+     * Assign role for user
+     * 
+     * @return [type]
+     */
+    public function getRoleAttribute()
+    {
+        return $this->attributes['role'];
+    }
 }

@@ -16,14 +16,20 @@ class CustomVerifyEmail extends BaseVerifyEmail
      */
     protected function verificationUrl($notifiable)
     {
+        $redirectUrl = match ($notifiable->role) {
+            'visitor', 'promoter' => config('app.frontend_url') . '/auth/register-profile',
+            'agency' => config('app.frontend_url') . '/auth/welcome',
+        };
+
         $temporaryUrl = URL::temporarySignedRoute(
             'verification.verify', Carbon::now()->addMinutes(60), [
                 'id' => $notifiable->getKey(),
                 'hash' => sha1($notifiable->getEmailForVerification()),
+                'redirect' => $redirectUrl,
             ]
         );
 
-        return str_replace(config('app.url'), config('app.frontend_url'), $temporaryUrl);
+        return $temporaryUrl;
     }
 
     /**
