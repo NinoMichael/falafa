@@ -7,6 +7,7 @@ import Home from '../pages/Home.vue'
 import Login from '../pages/auth/Login.vue'
 import RegisterEmail from '../pages/auth/RegisterEmail.vue'
 import RegisterInfo from '../pages/auth/RegisterInfo.vue'
+import VerifyEmail from '../pages/auth/VerifyEmail.vue'
 
 const routes: RouteRecordRaw[] = [
     {
@@ -23,6 +24,7 @@ const routes: RouteRecordRaw[] = [
             { path: 'login', name: 'Login', component: Login },
             { path: 'register-email', name: 'RegisterEmail', component: RegisterEmail },
             { path: 'register-info', name: 'RegisterInfo', component: RegisterInfo },
+            { path: 'verify-email', name: 'VerifiyEmail', component: VerifyEmail },
         ]
     },
     // { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },

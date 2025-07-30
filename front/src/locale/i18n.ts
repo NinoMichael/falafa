@@ -66,6 +66,9 @@ const messages = {
         companyName: 'Nom de l\'agence',
         responsibleName: 'Nom du représentant',
         success: 'Succès',
+        titleVerifyEmail: 'Vérifiez votre adresse e-mail',
+        pVerifyEmail: 'Veuillez consulter votre boite e-mail et cliquer sur le lien fourni pour vérifier votre adresse e-mail et activer votre compte',
+        resendEmail: 'Renvoyer l\'email',
     },
 
     mg: {
@@ -133,6 +136,9 @@ const messages = {
         companyName: 'Anaran\'ny agence',
         responsibleName: 'Anaran\'ny mpandraharaha',
         success: 'Fahombiazana',
+        titleVerifyEmail: 'Hamarino ny adiresy mailaka',
+        pVerifyEmail: 'Jereo ny boaty mailakao azafady ary tsindrio ny rohy nomena mba hanamarinana ny adiresy mailakao sy hampamokatra ny kaontinao',
+        resendEmail: 'Averina alefa',
     },
 };
 

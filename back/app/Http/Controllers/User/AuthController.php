@@ -32,10 +32,12 @@ class AuthController extends Controller
         $data = $request->validated();
         $user = AuthService::register($data);
 
+        $user->sendEmailVerificationNotification();
+
         return response()->json([
             'message' => __('auth.registered_success'), 
-            'user' => $user],
-        201);
+            'user' => $user
+        ], 201);
     }
 
     /**
