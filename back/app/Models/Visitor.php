@@ -23,4 +23,14 @@ class Visitor extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Polymorphic relation with information detail
+     * 
+     * @return [type]
+     */
+    public function informationDetail()
+    {
+        return $this->morphOne(InformationDetail::class, 'profilable');
+    }
 }

@@ -1,7 +1,7 @@
 import { ref } from 'vue';
-import axios from 'axios';
 
 import { loginService, registerService, resendVerifyEmailService } from '../services/user/AuthService';
+import { storeInfoDetailService } from '../services/user/ProfileService';
 
 const loading = ref<boolean>(false);
 const error = ref(null);
@@ -47,6 +47,24 @@ export const useAuth = () => {
         }
     }
 
+    const storeInfoDetail = async (formData) => {
+        loading.value = true;
+        error.value = null;
+
+        const token = localStorage.getItem('token')
+
+        try {
+            return await storeInfoDetailService(formData, token);
+        } 
+        catch (err) {
+            error.value = err?.response?.data?.message;
+            throw err;
+        } 
+        finally {
+            loading.value = false;
+        }
+    }
+
     const resendEmail = async (lang) => {
         loading.value = true;
         error.value = null;
@@ -69,6 +87,7 @@ export const useAuth = () => {
         login,
         register,
         resendEmail,
+        storeInfoDetail,
         error,
         loading,
     }

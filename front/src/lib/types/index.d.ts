@@ -46,6 +46,19 @@ export interface Agency {
     updated_at?: string,
 }
 
+export interface InformationDetail {
+    id: number,
+    profilable_type: string,
+    profilable_id: number,
+    lastname: string,
+    firstname: string
+    birth_date: string,
+    is_male: boolean,
+    created_at: string,
+    updated_at: string,
+    lang: Lang,
+}
+
 export interface RegisterData  {
     email: string,
     password: string,

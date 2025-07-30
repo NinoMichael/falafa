@@ -1,5 +1,8 @@
 <template>
-    <form class="px-8 lg:px-24">
+    <form 
+        class="px-8 lg:px-24"
+        @submit.prevent="submit"
+    >
         <h1 class="text-2xl font-semibold text-center text-primary">
             {{ t('registerTitle') }}
         </h1>
@@ -48,6 +51,7 @@
                 <DatePicker
                     id="birthDate" 
                     v-model="formData.birth_date"
+                    dateFormat="yy-mm-dd"
                     class="focus-within:!border-secondary !w-full"
                     showIcon 
                     iconDisplay="input"
@@ -108,6 +112,7 @@
 
         <Button 
             :label="t('finish')"
+            :loading="loading"
             type="submit"
             class="!mt-10 !mb-6 sm:!mb-0 !bg-secondary !w-full"
         />
@@ -125,9 +130,15 @@ import DatePicker from 'primevue/datepicker';
 import RadioButton from 'primevue/radiobutton';
 import Button from 'primevue/button';
 import { primevueLocales } from '../../locale/primevue';
+import { useToast } from "primevue/usetoast";
+import { formatDateToYMD } from '../../lib/utils/function';
+
+import { useAuth } from '../../composables/useAuth';
 
 const { t, locale } = useI18n();
 const PrimeVue = usePrimeVue();
+const toast = useToast();
+const { storeInfoDetail, loading, error } = useAuth();
 
 const gender = ref('male');
 
@@ -136,9 +147,31 @@ const formData = reactive({
     firstname: '',
     birth_date: null,
     is_male: true,
+    lang: locale.value,
 });
 
 watchEffect(() => {
     PrimeVue.config.locale = primevueLocales[locale.value] || primevueLocales['fr'];
 });
+
+const submit = async () => {
+    if ( gender.value == 'female' ) {
+        formData.is_male = false;
+    }
+
+    formData.birth_date = formatDateToYMD(formData.birth_date);
+    formData.lang = locale.value;
+
+    try {
+        const response = await storeInfoDetail(formData);
+    } 
+    catch (err) {
+        toast.add({ 
+            severity: 'error',
+            summary: t('error'),
+            detail: error.value,
+            life: 3000,  
+        });
+    } 
+}
 </script>

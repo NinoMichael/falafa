@@ -56,6 +56,21 @@ class UserResource extends JsonResource
             }
         }
 
+        if (in_array($this->role, ['visitor', 'promoter'])) {
+            $profileInfo = $this->informationDetail;
+            if ($profileInfo) {
+                $data['profile_information'] = [
+                    'id' => $profileInfo->id,
+                    'lastname' => $profileInfo->lastname,
+                    'firstname' => $profileInfo->firstname,
+                    'birth_date' => $profileInfo->birth_date,
+                    'is_male' => $profileInfo->is_male,
+                    'created_at' => $profileInfo->created_at,
+                    'updated_at' => $profileInfo->updated_at,
+                ];
+            }
+        }
+
         return $data;
     }
 }
