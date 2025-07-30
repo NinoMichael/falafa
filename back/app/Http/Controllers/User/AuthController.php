@@ -30,13 +30,14 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $data = $request->validated();
-        $user = AuthService::register($data);
+        $result = AuthService::register($data);
 
-        $user->sendEmailVerificationNotification();
+        $result['user']->sendEmailVerificationNotification();
 
         return response()->json([
-            'message' => __('auth.registered_success'), 
-            'user' => $user
+            'message' => __('auth.registered_success'),
+            'token' => $result['token'], 
+            'user' => new UserResource($result['user']),
         ], 201);
     }
 

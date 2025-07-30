@@ -143,6 +143,7 @@
 
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
+import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
 import Select from 'primevue/select';
@@ -155,6 +156,7 @@ import { useAuth } from '../../composables/useAuth';
 
 import { useRegistrationEmailStore } from '../../stores/user/useRegistrationStore';
 
+const router = useRouter();
 const { t, locale } = useI18n();
 const toast = useToast();
 const { register, loading, error } = useAuth();
@@ -207,11 +209,16 @@ const submit = async () => {
         toast.add({ 
             severity: 'success',
             summary: t('success'),
-            detail: response.data.message,
+            detail: response,
             life: 3000,  
         });
+
+        store.emailVerified = true;
+
+        router.push('/auth/verify-email');
     } 
     catch (err) {
+        console.error(err);
         toast.add({ 
             severity: 'error',
             summary: t('error'),

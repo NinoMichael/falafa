@@ -18,3 +18,13 @@ export const registerService = (formData: RegisterData) => {
         }
     });
 };
+
+export const resendVerifyEmailService = (lang: string, token: string) => {
+    return axios.post(`${baseURL}/api/email/resend`, null, {
+        headers: {
+            'Accept-Language': lang,
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        }
+    });
+}

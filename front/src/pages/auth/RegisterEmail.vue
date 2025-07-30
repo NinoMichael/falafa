@@ -130,6 +130,8 @@ const submit = () => {
         store.password = formData.password;
     }
 
+    store.emailEntered = true;
+
     router.push('/auth/register-info');
 }
 </script>

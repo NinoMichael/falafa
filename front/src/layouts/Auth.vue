@@ -45,9 +45,14 @@ import Logo from '../components/inc/Logo.vue';
 import SelectLang from '../components/inc/SelectLang.vue';
 import house from '../assets/images/house-login.png';
 
+import { useRegistrationEmailStore } from '../stores/user/useRegistrationStore';
+
+const store = useRegistrationEmailStore();
 const { t } = useI18n();
 
 const goBack = () => {
-    window.history.back();
+    if ( !store.emailEntered || !store.emailVerified ) {
+        window.history.back();
+    }
 }
 </script>

@@ -18,7 +18,9 @@
             <Button
                 icon="pi pi-arrow-right"
                 :label="t('resendEmail')" 
+                :loading="loading"
                 class="!mt-10 !bg-transparent !text-primary !font-semibold !mx-auto !flex !gap-6"
+                @click="handleResendEmail"
             />
         </div>
     </form>
@@ -28,9 +30,36 @@
 import { useI18n } from 'vue-i18n';
 
 import { Button } from 'primevue';
+import { useToast } from "primevue/usetoast";
+import { useAuth } from '../../composables/useAuth';
 
 import verifyEmail from '../../assets/images/verify-email.png';
 
-const { t } = useI18n();
+const toast = useToast();
+const { t, locale } = useI18n();
+const { loading, error, resendEmail } = useAuth();
+
+const handleResendEmail = async () => {
+    const lang = locale.value;
+
+    try {
+        const response = await resendEmail(lang);
+
+        toast.add({ 
+            severity: 'success',
+            summary: t('success'),
+            detail: response.data.message,
+            life: 3000,  
+        });
+    } 
+    catch (err) {
+        toast.add({ 
+            severity: 'error',
+            summary: t('error'),
+            detail: error.value,
+            life: 3000,  
+        });
+    }
+}
 </script>
 

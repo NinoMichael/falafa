@@ -7,7 +7,8 @@ import "primeicons/primeicons.css";
 import App from './App.vue';
 import router from './router';
 import ToastService from 'primevue/toastservice';
-import { createPinia } from 'pinia'
+import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
 const app = createApp(App);
 app.use(PrimeVue, {
@@ -22,6 +23,7 @@ app.use(PrimeVue, {
 });
 
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
 
 app.use(router);
 app.use(i18n);

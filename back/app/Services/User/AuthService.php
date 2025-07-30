@@ -75,6 +75,11 @@ class AuthService
                 break;
         }
 
-        return $user;
+        Auth::login($user);
+
+        return [
+            'token' => $user->createToken('auth_token')->plainTextToken,
+            'user' => $user,
+        ];
     }
 }
