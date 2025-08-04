@@ -10,11 +10,12 @@
         <div class="flex gap-6 items-center">
             <Button
                 as="a" 
-                :label="t('login')"
+                :label="user ? t('account') : t('login')"
                 class="!bg-primary hover:!bg-primary/90 !hidden sm:!block"
                 href='/auth/login'
             />
             <Button
+                v-if="!user"
                 as="a"  
                 :label="t('register')"
                 class="!bg-secondary hover:!bg-secondary/90 !hidden sm:!block"
@@ -48,13 +49,17 @@
                 />
 
                 <div class="flex flex-col gap-4 mt-48 px-4">
-                    <Button 
+                    <Button
+                        as="a" 
                         :label="t('login')"
                         class="!bg-primary"
+                        href='/auth/login'
                     />
-                    <Button 
+                    <Button
+                        as="a"  
                         :label="t('register')"
                         class="!bg-secondary"
+                        ref='/auth/register-email'
                     />
                 </div>
             </Drawer>
@@ -74,16 +79,26 @@ import Drawer from 'primevue/drawer';
 import Logo from './Logo.vue';
 import SelectLang from "./SelectLang.vue";
 
+import { useAuth } from '../../composables/useAuth';
+
 const { t } = useI18n();
 const router = useRouter();
+const { getUser } = useAuth();
 
+const user = getUser();
 const visible = ref(false);
 const items = computed(() => [
     {
-        label: t('home')
+        label: t('home'),
+        command: () => {
+            router.push('/');
+        },
     },
     {
-        label: t('discover')
+        label: t('discover'),
+        command: () => {
+            router.push('/discover');
+        },
     },
     {
         label: t('services')

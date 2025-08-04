@@ -1,10 +1,15 @@
 export type RoleType = 'visitor' | 'promoter' | 'agency' | 'admin';
 export type Lang = 'fr' | 'mg';
 export type AccountStatus = 'active' | 'inactive' | 'suspended';
+export type CategoryLocation = 'sell' | 'location';
+export type TypeField = 'buildable' | 'agricultural' | 'industrial';
+export type Province = 'Antananarivo' | 'Toamasina' | 'Antsiranana' | 'Mahajanga' | 'Fianarantsoa' | 'Toliara';
+export type EstateStatus = 'available' | 'reserved' | 'sold' | 'rent' | 'removed';
 
 export interface User {
     id: number,
     email: string,
+    verified_at?: string,
     role: RoleType,
     contact: string,
     avatar_path?: string,
@@ -17,7 +22,6 @@ export interface User {
 export interface Visitor {
     id: number,
     user_id: number,
-    verified_at?: string,
     status: AccountStatus,
     created_at?: string,
     updated_at?: string,
@@ -27,7 +31,6 @@ export interface Promoter {
     id: number,
     user_id: number,
     facebook_link?: string,
-    verified_at?: string,
     status: AccountStatus,
     created_at?: string,
     updated_at?: string,
@@ -57,6 +60,48 @@ export interface InformationDetail {
     created_at: string,
     updated_at: string,
     lang: Lang,
+}
+
+export interface City {
+    id: number,
+    name: string,
+    province: Province,
+}
+
+export interface Field {
+    id: number,
+    type: TypeField,
+    is_fenced: boolean,
+    road_access: boolean,
+    created_at?: string,
+    updated_at?: string,
+}
+
+export interface Estate {
+    id: number,
+    title: string,
+    description: string,
+    category: CategoryLocation,
+    field?: Field,
+    sell_price?: string,
+    rent_price?: string,
+    area: number,
+    longitude: number,
+    latitude: number,
+    address: string,
+    city: City,
+    promoter: Promoter,
+    agency?: Agency,
+    visitor?: Visitor,
+    is_validated: boolean,
+    status: EstateStatus,
+    cover_image?: string,
+    water: boolean,
+    eletricity: boolean,
+    views_count: number,
+    created_at?: string,
+    updated_at?: string,
+    deleted_at?: string,
 }
 
 export interface RegisterData  {

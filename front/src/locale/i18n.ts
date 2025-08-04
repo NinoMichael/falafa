@@ -86,6 +86,7 @@ const messages = {
         consultOur: "Consulter notre",
         startGuide: "guide de démarrage",
         orContactOur: "ou contactez notre service client",
+        account: "Compte",
     },
 
     mg: {
@@ -172,6 +173,7 @@ const messages = {
         consultOur: "Tsidiho ny",
         startGuide: "Torolalana",
         orContactOur: "na mifandraisa amin\'ny service client",
+        account: "Kaonty",
     },
 };
 

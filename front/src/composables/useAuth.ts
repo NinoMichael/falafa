@@ -83,11 +83,16 @@ export const useAuth = () => {
         }
     }
 
+    const getUser = () => {
+        return localStorage.getItem('user');
+    }
+
     return {
         login,
         register,
         resendEmail,
         storeInfoDetail,
+        getUser,
         error,
         loading,
     }

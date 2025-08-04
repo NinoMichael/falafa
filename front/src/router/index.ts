@@ -6,6 +6,7 @@ import Default from '../layouts/Default.vue';
 import Auth from '../layouts/Auth.vue';
 
 import Home from '../pages/Home.vue';
+import Discover from '../pages/Discover.vue';
 import Login from '../pages/auth/Login.vue';
 import RegisterEmail from '../pages/auth/RegisterEmail.vue';
 import RegisterInfo from '../pages/auth/RegisterInfo.vue';
@@ -19,6 +20,7 @@ const routes: RouteRecordRaw[] = [
         component: Default,
         children: [
             { path: '', name: 'Home', component: Home },
+            { path: '/discover', name: 'Discover', component: Discover },
         ]
     },
     {
