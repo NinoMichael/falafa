@@ -79,6 +79,13 @@ const messages = {
         male: 'Masculin',
         female: 'Féminin',
         finish: 'Terminer',
+        welcomeTo: 'Bienvenue sur Falafa !',
+        thankRegistering: " Merci de vous être inscrit(e) sur notre plateforme de référencement immobilier 100% dédiée à Madagascar",
+        whereverYou: "Que vous soyez à la recherche de votre futur chez-vous, que vous souhaitiez vendre ou louer un bien, ou que vous représentiez une agence immobilière, vous êtes au bon endroit !",
+        continueToExplore: "Découvrir les annonces",
+        consultOur: "Consulter notre",
+        startGuide: "guide de démarrage",
+        orContactOur: "ou contactez notre service client",
     },
 
     mg: {
@@ -158,6 +165,13 @@ const messages = {
         male: 'Lehilahy',
         female: 'Vehivavy',
         finish: 'Hamarana',
+        welcomeTo: 'Tongasoa eto amin\'ny Falafa',
+        thankRegistering: 'Misaotra anao nisoratra anarana ato amin\'ny tambazotra fitadiavana fananana natokana ho antsika Malagasy',
+        whereverYou: "Na mitady fananana, na hivarotra na hanofa, na orinasa misahana ny fananan-tany ianao, dia natao ho anao ity tambazotra ity !",
+        continueToExplore: "Hijery ireo fananana vaovao",
+        consultOur: "Tsidiho ny",
+        startGuide: "Torolalana",
+        orContactOur: "na mifandraisa amin\'ny service client",
     },
 };
 
