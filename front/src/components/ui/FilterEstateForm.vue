@@ -3,7 +3,7 @@
         <Select
             :options="cities"
             optionValue="name"
-            :optionLabel="city => `${city.name}, ${city.province}`"
+            :optionLabel="city => `${city.name}, ${city.region}`"
             placeholder="Ville"
             filter 
             class="p-dropdown-custom"
@@ -227,12 +227,18 @@
 </template>
 
 <script lang="ts" setup>
+import { ref,onMounted } from 'vue';
+
 import Button from 'primevue/button';
 import Select from 'primevue/select';
 import RadioButton from 'primevue/radiobutton';
 import Checkbox from 'primevue/checkbox';
 import InputText from 'primevue/inputtext';
 import Chip from 'primevue/chip';
+
+import { useCity } from '../../composables/useCity';
+
+const { getCity } = useCity();
 
 const props = defineProps({
     class: {
@@ -242,16 +248,9 @@ const props = defineProps({
 });
 
 
-const cities = [
-    {
-        id: 1,
-        name: 'Ivato',
-        province: 'Antananarivo',
-    },
-    {
-        id: 2,
-        name: 'Ambohibao',
-        province: 'Antananarivo',
-    },
-];
+const cities = ref([]);
+
+onMounted( async() => {
+    cities.value = await getCity();
+});
 </script>

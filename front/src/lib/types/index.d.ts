@@ -3,7 +3,11 @@ export type Lang = 'fr' | 'mg';
 export type AccountStatus = 'active' | 'inactive' | 'suspended';
 export type CategoryLocation = 'sell' | 'location';
 export type TypeField = 'buildable' | 'agricultural' | 'industrial';
-export type Province = 'Antananarivo' | 'Toamasina' | 'Antsiranana' | 'Mahajanga' | 'Fianarantsoa' | 'Toliara';
+export type Region = 'Analamanga' | 'Bongolava' | 'Itasy' | 'Vakinankaratra' | 'Diana' | 'Sava' |
+                    'Amoroni Mania' | 'Atsimo-Atsinanana' | 'Fitovinany' | 'Haute Matsiatra' |
+                    'Ihorombe' | 'Vatovavy' | 'Betsiboka' | 'Boeny' | 'Melaky' | 'Sofia' |
+                    'Alaotra-Mangoro' | 'Ambatosoa' | 'Analanjirofo' | 'Atsinanana' | 'Androy' |
+                    'Anosy' | 'Atsimo-Andrefana' | 'Menabe';
 export type EstateStatus = 'available' | 'reserved' | 'sold' | 'rent' | 'removed';
 
 export interface User {
@@ -65,7 +69,7 @@ export interface InformationDetail {
 export interface City {
     id: number,
     name: string,
-    province: Province,
+    region: Region,
 }
 
 export interface Field {
