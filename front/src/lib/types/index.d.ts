@@ -9,6 +9,8 @@ export type Region = 'Analamanga' | 'Bongolava' | 'Itasy' | 'Vakinankaratra' | '
                     'Alaotra-Mangoro' | 'Ambatosoa' | 'Analanjirofo' | 'Atsinanana' | 'Androy' |
                     'Anosy' | 'Atsimo-Andrefana' | 'Menabe';
 export type EstateStatus = 'available' | 'reserved' | 'sold' | 'rent' | 'removed';
+export type TypeHouse = 'traditional' | 'wooden' | 'colonial' | 'contemporary' | 'modern';
+export type CategoryApartment = 'Apartment' | 'office' | 'store';
 
 export interface User {
     id: number,
@@ -81,12 +83,40 @@ export interface Field {
     updated_at?: string,
 }
 
+export interface House {
+    id: number,
+    type: TypeHouse,
+    rooms: number,
+    bathroom: boolean,
+    living_room: boolean,
+    kitchen: boolean,
+    garden: boolean,
+    garage: boolean,
+    floor_count: number,
+    is_furnished: boolean,
+}
+
+export interface Apartment {
+    id: number,
+    category: CategoryApartment,
+    floor_number: number,
+    building_name?: string,
+    rooms: number,
+    bathroom: boolean,
+    kitchen: boolean,
+    balcony: boolean,
+    parking: boolean,
+    is_furnished: boolean,
+}
+
 export interface Estate {
     id: number,
     title: string,
     description: string,
     category: CategoryLocation,
     field?: Field,
+    house?: House,
+    apartment?: Apartment,
     sell_price?: string,
     rent_price?: string,
     area: number,
@@ -101,7 +131,7 @@ export interface Estate {
     status: EstateStatus,
     cover_image?: string,
     water: boolean,
-    eletricity: boolean,
+    electricity: boolean,
     views_count: number,
     created_at?: string,
     updated_at?: string,

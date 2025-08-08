@@ -9,6 +9,7 @@ Route::middleware([SetLocale::class])->group(function () {
     require __DIR__.'/modules/auth.php';
     require __DIR__.'/modules/profile.php';
     require __DIR__.'/modules/city.php';
+    require __DIR__.'/modules/estate.php';
 
     Route::prefix('email')->middleware('auth:sanctum')->group(function () {
         Route::get('verify/{id}/{hash}', [EmailVerificationController::class, 'verifyUser'])
