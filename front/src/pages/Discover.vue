@@ -85,12 +85,24 @@
             </div>
 
             <div class="mt-2 p-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                <CardEstate
-                    v-for="estate in estates"
-                    :key="estate.id"
-                    :estate="estate"
-                />
+                <template v-if="loading">
+                    <Skeleton
+                        v-for="i in 12"
+                        :key="i"
+                        height="16rem"
+                        class="mb-4 rounded-xl"
+                    />
+                </template>
+
+                <template v-else>
+                    <CardEstate
+                        v-for="estate in estates"
+                        :key="estate.id"
+                        :estate="estate"
+                    />
+                </template>
             </div>
+
         </section>
     </div>
 </template>
@@ -98,8 +110,8 @@
 <script lang="ts" setup>
 import { ref, onMounted, reactive } from 'vue';
 import { useI18n } from 'vue-i18n';
-import type { CategoryLocation, TypeField, EstateStatus, AccountStatus } from '../lib/types';
 
+import Skeleton from 'primevue/skeleton';
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import IconField from 'primevue/iconfield';
@@ -111,7 +123,7 @@ import FilterEstateForm from '../components/ui/FilterEstateForm.vue';
 
 import { useEstate } from '../composables/useEstate';
 
-const { getAndFilterEstate, estates } = useEstate();
+const { getAndFilterEstate, estates, loading } = useEstate();
 
 const { t, locale } = useI18n();
 const sortPop = ref();

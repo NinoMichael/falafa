@@ -10,10 +10,21 @@ const estates = ref<Estate[]>([]);
 
 export const useEstate = () => {
     const getAndFilterEstate = async (formData) => {
-        const response = await getAndFilterEstatesService(formData);
-        const { data } = response.data;
+        try {
+            loading.value = true;
 
-        estates.value = transformEstates(data);
+            const response = await getAndFilterEstatesService(formData);
+            const { data } = response.data;
+    
+            estates.value = transformEstates(data);
+        } 
+        catch (err) {
+            error.value = err;
+            throw err;
+        }
+        finally {
+            loading.value = false;
+        }
     }
 
     return {

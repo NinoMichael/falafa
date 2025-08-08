@@ -14,7 +14,7 @@
                 <p>
                     <i class="pi pi-map-marker mr-2"/>
                     <span>
-                        {{ props.estate.city.name }}, {{ props.estate.city.province }}
+                        {{ props.estate.city.name }}, {{ props.estate.city.region }}
                     </span>
                 </p>
             </div>

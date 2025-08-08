@@ -1,4 +1,4 @@
 export const typeLocations = {
-    sell: 'À vendre',
+    sale: 'À vendre',
     rent: 'À louer',
 }

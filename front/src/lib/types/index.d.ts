@@ -1,7 +1,7 @@
 export type RoleType = 'visitor' | 'promoter' | 'agency' | 'admin';
 export type Lang = 'fr' | 'mg';
 export type AccountStatus = 'active' | 'inactive' | 'suspended';
-export type CategoryLocation = 'sell' | 'location';
+export type CategoryLocation = 'sale' | 'location';
 export type TypeField = 'buildable' | 'agricultural' | 'industrial';
 export type Region = 'Analamanga' | 'Bongolava' | 'Itasy' | 'Vakinankaratra' | 'Diana' | 'Sava' |
                     'Amoroni Mania' | 'Atsimo-Atsinanana' | 'Fitovinany' | 'Haute Matsiatra' |
